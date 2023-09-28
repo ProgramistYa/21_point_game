@@ -8,7 +8,7 @@ import time
 
 deck = [2, 3, 4, 6, 7, 8, 9, 10, 11] * 4
 random.shuffle(deck)
-print('Поиграем в 21очко?')
+print('Поиграем в 21 очко?')
 count = 0
 count_bota = 0
 while True:
@@ -19,7 +19,8 @@ while True:
         count += contine
         if count > 21:
             print('Вы проиграли', count)
-            continue
+            break
+            #continue
         elif count == 21:
             print('Поздравляю у вас очко(21)')
         else:
@@ -29,13 +30,15 @@ while True:
         print('Теперь ходит бот')
         # Ход бота
         while True:
-            if count_bota < 15:
+            if count_bota <= 15:
                 print("Бот берет карту")
                 score_carts = random.choice(deck)
+                print("--------------------")
                 print("Боту выпало", score_carts, "очков.")
                 count_bota += score_carts
+                print("--------------------")
                 print("У бота ", count_bota, "очков.")
-                time.sleep(3)
+                time.sleep(4)
                 continue
             if count_bota > 21:
                 print("Бот проиграл.\nТак как у него", count_bota, "очков, а у вас ", count)
